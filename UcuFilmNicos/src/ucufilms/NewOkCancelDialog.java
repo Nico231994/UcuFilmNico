@@ -94,7 +94,7 @@ public class NewOkCancelDialog extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel1.setText("No se pudieron extraer resultados. Nombre Ivalido");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Nicolas\\Documents\\NetBeansProjects\\UcuFilms\\src\\advertencia.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ucufilms/advertencia.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
