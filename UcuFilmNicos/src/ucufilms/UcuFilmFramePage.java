@@ -71,7 +71,6 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 102, 0));
         setPreferredSize(new java.awt.Dimension(1003, 600));
-        setResizable(false);
         setSize(new java.awt.Dimension(1024, 600));
 
         jButton1.setText("Cargar Datos");
@@ -234,7 +233,8 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         String nombre = jTextField3.getText();
         NewOkCancelDialog dialog = new NewOkCancelDialog(this, rootPaneCheckingEnabled);
-       if(filtroActor(nombre)==false && filtroNombre(nombre)== false && filtroPorDirector(nombre)==false){
+       if(filtroActor(nombre)==false && filtroNombre(nombre)== false && filtroPorDirector(nombre)==false && 
+               filtroPorGenero(nombre)){
            dialog.pack();
            dialog.setVisible(true);
           // jTextField3.setText("No se encontraron resultados");
@@ -349,6 +349,31 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
                elementoImagen = (Imagen) elementoImagen.getSiguiente();
         }this.pack();
    }
+   public boolean filtroPorGenero(String nombre ){
+       String nombreUp=nombre.toUpperCase();
+       ILista<Pelicula> listaMostrar =peliculas;
+       ILista<Imagen> listaImagen = imagenes;
+       Pelicula elemento =(Pelicula) listaMostrar.getPrimero();
+       Imagen elementoIm = (Imagen) listaImagen.getPrimero();
+       while (elemento != null){
+           String[] a = elemento.getGeneros().toUpperCase().split("-");
+          { for (int i = 0; i < a.length; i++) {
+              if(nombreUp.contains(a[i])){
+                  {if(elemento.getEtiqueta().equals(elementoIm.getEtiqueta())){
+                      NewJDialogInfo dialog = new NewJDialogInfo(new java.awt.Frame() , true,elemento,elemento.getActores(),
+                      elemento.getDirectores(),elementoIm);
+                      dialog.setVisible(true);
+                      this.pack();
+                      return true;}}
+                  }
+                  }       
+          }elemento =(Pelicula) elemento.getSiguiente(); 
+           elementoIm=(Imagen) elementoIm.getSiguiente();
+       }
+       return false;
+  }
+   
+   
   public boolean filtroNombre(String nombre){
        String nombreUp=nombre.toUpperCase();
        ILista<Pelicula> listaMostrar =peliculas;

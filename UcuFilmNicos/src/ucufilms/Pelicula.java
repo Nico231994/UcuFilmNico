@@ -18,13 +18,13 @@ public class Pelicula implements IPelicula {
     private String reseña;
     
     private IPelicula siguiente = null;
-    private String[] generos;
+    private String generos;
     private Lista<Actor> actores;
     private Lista<Director> directores;
     private Lista<Productor> productores;
     
     public Pelicula(Comparable id, String nombre, Comparable año, float puntaje,
-            String reseña, String[] generos, Lista<Actor> ac, Lista<Director> dir, Lista<Productor> pro) {
+            String reseña, String generos, Lista<Actor> ac, Lista<Director> dir, Lista<Productor> pro) {
         this.id = id;
         this.nombre = nombre;
         this.año = año;
@@ -57,7 +57,7 @@ public class Pelicula implements IPelicula {
         return this.reseña;
     }
     
-    public String[] getGeneros() {
+    public String getGeneros() {
         return this.generos;
     }
     

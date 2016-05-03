@@ -33,7 +33,7 @@ public class UcuFilms {
         return this.imagenes;
     }
     
-    public Lista<Productor> getProductores() {
+    public Lista<Productor> getProductores(){
         return this.productores;
     }
             
@@ -122,7 +122,7 @@ public class UcuFilms {
             Comparable año = elemento[2];
             float puntaje = Float.parseFloat(elemento[3]);
             String reseña = elemento[4];
-            String[] generos = elemento[5].split("-");
+            String generos = elemento[5];
             pe.insertar(new Pelicula(clave, nombre, año, puntaje, reseña, generos, new Lista<>(), new Lista<>(), new Lista<>()));
         }
         return pe;

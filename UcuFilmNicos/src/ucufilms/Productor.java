@@ -56,7 +56,7 @@ class Productor implements IProductor {
 
     @Override
     public boolean equals(INodo unNodo) {
-        return this.getEtiqueta().equals((IActor)unNodo.getEtiqueta());
+        return this.getEtiqueta().equals((IProductor)unNodo.getEtiqueta());
     }
 
     @Override
