@@ -69,6 +69,8 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jTextField3 = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 102, 0));
@@ -120,7 +122,7 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
 
         jLabel3.setText("  Nombre Pelicula");
 
-        jButton5.setText("Ver");
+        jButton5.setText("Filtrar Pelicula");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -133,10 +135,24 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("jButton6");
+        jButton6.setText("Filtrar por Genero");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Filtrar por Director");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Filtrar Actor");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
             }
         });
 
@@ -145,26 +161,27 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(883, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(867, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(15, 15, 15))
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField3)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator2)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1)
+                    .addComponent(jTextField2)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,8 +213,12 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton7)
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         pack();
@@ -243,17 +264,13 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String nombre = jTextField3.getText();
-        NewOkCancelDialog dialog = new NewOkCancelDialog(this, rootPaneCheckingEnabled);
-        
+        String nombre = jTextField3.getText();        
         filtroNombre(nombre);//Para nombre peli
-        //filtroPorDirector(nombre);
-        //JPanelPelisLista frame = new JPanelPelisLista(llenarLista1(nombre));//para filtrar por genero
-        //JPanelPelisLista frame2 = new JPanelPelisLista(mostrarDirector(nombre));//para filtrar por director
-        NewJDiialogPelis d = new NewJDiialogPelis(filtrarActor(nombre));
-        d.setVisible(true);
-        d.pack();
+        
+//filtroPorDirector(nombre);
+       //para filtrar por genero
        
+        
         //frame.pack();
         //frame2.pack();
       // if(filtroActor(nombre)==false && filtroNombre(nombre)== false && filtroPorDirector(nombre)==false && 
@@ -266,10 +283,35 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-       this.removeAll();
-       
+        String nombre = jTextField3.getText();
+        NewOkCancelDialog dialog = new NewOkCancelDialog(this, rootPaneCheckingEnabled);
+        NewJDiialogPelis frame = new NewJDiialogPelis(llenarLista1(nombre));
+        frame.setBackground(new Color(255,102,0));
+        
+        frame.setVisible(true);
+        frame.pack();
+        
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+         
+        String nombre = jTextField3.getText();
+        NewJDiialogPelis d = new NewJDiialogPelis(mostrarDirector(nombre));//para filtrar por director
+        d.setBackground(new Color(255,102,0));
+         d.setVisible(true);
+        d.pack();
+                
+     
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+       String nombre = jTextField3.getText();
+        NewOkCancelDialog dialog = new NewOkCancelDialog(this, rootPaneCheckingEnabled);
+        NewJDiialogPelis d = new NewJDiialogPelis(filtrarActor(nombre));// filtrar por actor
+        d.setBackground(new Color(255,102,0));
+         d.setVisible(true);
+        d.pack();
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,6 +355,8 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -327,6 +371,7 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
   public void crearPanel(){
        ILista<Pelicula> listaMostrar =peliculas;
        ILista<Imagen> listaImagen = imagenes;
+       
        java.util.Date fecha = new Date();
             Pelicula elemento =(Pelicula) listaMostrar.getPrimero();
             Imagen elementoImagen = (Imagen) listaImagen.getPrimero();
@@ -341,7 +386,7 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
                if(indice <=4){
                    
                    Movie movieout= new Movie(elemento, elementoImagen);
-                   if(año>=2015){
+                   if(año>=2014){
                         this.add(movieout);
                         movieout.setLocation(10+location, 10);
                         movieout.setSize(200, 300);
@@ -352,7 +397,7 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
                         location+=250;}
                    }else{
               if(indice==5){
-                       if(año>=2015){
+                       if(año>=2014){
                        Movie movieout1= new Movie(elemento,elementoImagen);
                        this.add(movieout1);
                        movieout1.setLocation(10, 10+loc);
@@ -468,35 +513,7 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
       }
       return pelis; 
   }
-   public void filtroPorGenero(String nombre ){
-       String nombreUp=nombre.toUpperCase();
-       ILista<Pelicula> listaMostrar =peliculas;
-       ILista<Imagen> listaImagen = imagenes;
-       Pelicula elemento =(Pelicula) listaMostrar.getPrimero();
-       Imagen elementoIm = (Imagen) listaImagen.getPrimero();
-       while (elemento != null){
-        if(elemento.getGeneros().toUpperCase().contains(nombreUp)){
-            {if(elemento.getEtiqueta().equals(elementoIm.getEtiqueta())){
-                NewJDialogInfo dialog = new NewJDialogInfo(new java.awt.Frame() , true,elemento,elemento.getActores(),
-                elemento.getDirectores(),elementoIm);
-                dialog.setVisible(true);
-                this.pack();
-                this.banderaGeneros=true;
-            }
-            }
-            }
-        
-        elementoIm=(Imagen) elementoIm.getSiguiente(); 
-        elemento =(Pelicula) elemento.getSiguiente(); 
-            
-        }
-       this.banderaGeneros=false;
-    
-}
-
-   
-   
-  public boolean filtroNombre(String nombre){
+public boolean filtroNombre(String nombre){
        String nombreUp=nombre.toUpperCase();
        ILista<Pelicula> listaMostrar =peliculas;
        ILista<Imagen> listaImagen = imagenes;
@@ -517,30 +534,6 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
        }
        return false;
   }
-  public boolean filtroPorDirector(String nombre){
-      String nombreUp = nombre.toUpperCase();
-      ILista<Pelicula> listaMostrar =peliculas;
-      ILista<Imagen> listaIm=imagenes;
-      Imagen elementoIm = (Imagen) listaIm.getPrimero();
-       Pelicula elemento =(Pelicula) listaMostrar.getPrimero();
-       Director elementoAc = (Director)elemento.getDirectores().getPrimero();
-       while (elemento != null){
-           if(nombreUp.equals(elementoAc.getNombre().toUpperCase()))
-              {if(elemento.getEtiqueta().equals(elementoIm.getEtiqueta())){   
-               NewJDialogInfo dialog = new NewJDialogInfo(new java.awt.Frame() , true,elemento,elemento.getActores(),
-               elemento.getDirectores(),elementoIm);
-               dialog.setVisible(true);
-               this.pack();
-               return true;
-               }
-              }
-           elemento =(Pelicula) elemento.getSiguiente();
-           elementoIm=(Imagen) elementoIm.getSiguiente();
-       }
-       return false;
-      
-  }
-
   public void filtroAño(){
         ILista<Pelicula> listaMostrar =peliculas;
         ILista<Imagen> listaImagen = imagenes;
@@ -619,7 +612,7 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
                float puntajePel = elemento.getPuntaje();  
                Movie movieout= new Movie(elemento,elementoImagen);
               
-               if(puntajePel>=8.0 && puntajePel<=10.0){
+               if(puntajePel>=9.0 && puntajePel<=10.0){
                this.add(movieout);
                 movieout.setLocation(10+location, 10);
                 movieout.setSize(200, 300);

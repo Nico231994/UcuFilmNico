@@ -5,6 +5,7 @@
  */
 package ucufilms;
 
+import java.awt.Color;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 
@@ -21,7 +22,7 @@ public String nombrePeliculaMostrar;
         initComponents();
         cargarJList(peliculas);
         this.setVisible(true);
-        
+     
     }
 
     private NewJDiialogPelis(JFrame jFrame, boolean b) {
@@ -43,14 +44,20 @@ public String nombrePeliculaMostrar;
         jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Resultados de Busqueda");
+        setBackground(new java.awt.Color(255, 102, 0));
 
-        jButton1.setText("jButton1");
+        jButton1.setBackground(new java.awt.Color(255, 150, 0));
+        jButton1.setText("Ver Informacion de la Pelicula");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jList1.setBackground(new java.awt.Color(255, 130, 0));
+        jList1.setFont(new java.awt.Font("Yu Mincho", 1, 14)); // NOI18N
+        jList1.setForeground(new java.awt.Color(255, 255, 255));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -63,26 +70,28 @@ public String nombrePeliculaMostrar;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(57, 57, 57))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getAccessibleContext().setAccessibleParent(this);
+
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -91,9 +100,7 @@ public String nombrePeliculaMostrar;
        nombreDePeli.nombrePeliculaMostrar1=stringPelicula;
         System.out.println("llega");
         System.out.println(stringPelicula);
-       nombreDePeli.filtroNombre(stringPelicula);
-     
-       
+       nombreDePeli.filtroNombre(stringPelicula);   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -8,6 +8,7 @@ package ucufilms;
 import java.awt.Color;
 import java.awt.Frame;
 import javax.swing.ImageIcon;
+import javax.swing.JProgressBar;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
@@ -27,6 +28,7 @@ public class NewJDialogInfo extends javax.swing.JDialog {
         
     
     }
+    
 
     NewJDialogInfo(java.awt.Frame frame, boolean b, Pelicula pel, Lista<Actor> ac,Lista<Director> dir,Imagen imagen) {
          initComponents();
@@ -50,6 +52,7 @@ public class NewJDialogInfo extends javax.swing.JDialog {
         jLabel10.setText(ImprimirElementoDir(dir));
         jLabel11.setIcon(i);
         jLabel13.setText(a);
+       
         
     }
     /**
@@ -60,6 +63,7 @@ public class NewJDialogInfo extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -76,6 +80,7 @@ public class NewJDialogInfo extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -104,16 +109,20 @@ public class NewJDialogInfo extends javax.swing.JDialog {
         jLabel4.setText("jLabel4");
 
         jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(153, 153, 153));
+        jTextArea1.setBackground(new java.awt.Color(255, 150, 0));
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("MS PGothic", 2, 12)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Myanmar Text", 0, 12)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(5);
+        jTextArea1.setToolTipText("");
         jTextArea1.setAutoscrolls(false);
-        jTextArea1.setMaximumSize(new java.awt.Dimension(500, 110));
+        jTextArea1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextArea1.setMinimumSize(new java.awt.Dimension(500, 110));
-        jTextArea1.setPreferredSize(new java.awt.Dimension(500, 115));
         jTextArea1.setRequestFocusEnabled(false);
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jScrollPane1, org.jdesktop.beansbinding.ELProperty.create("400"), jTextArea1, org.jdesktop.beansbinding.BeanProperty.create("maximumSize"));
+        bindingGroup.addBinding(binding);
+
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel3.setText("Actores:");
@@ -141,32 +150,38 @@ public class NewJDialogInfo extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel7)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel10))
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(159, 159, 159)
-                                        .addComponent(jLabel5))
+                                                .addComponent(jLabel3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLabel7)))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel13)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel9)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jLabel10))
+                                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(159, 159, 159)
+                                                .addComponent(jLabel5))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel12)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel13)))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
@@ -219,11 +234,15 @@ public class NewJDialogInfo extends javax.swing.JDialog {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel12)
                                     .addComponent(jLabel13))
+                                .addGap(36, 36, 36)
+                                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(12, 12, 12)
                 .addComponent(jLabel4)
                 .addContainerGap())
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -284,8 +303,10 @@ public class NewJDialogInfo extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 public String ImprimirElemento(Lista<Actor> ac){
     String actores="";
