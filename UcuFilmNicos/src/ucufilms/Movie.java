@@ -26,28 +26,20 @@ public class Movie extends javax.swing.JPanel {
      */
     String nombrePeliculaMostrar;
     public Movie(Pelicula pel, Imagen imagen) {
-        initComponents();
+        initComponents(); 
         
-        //Border bordejpanel = new TitledBorder(new EtchedBorder(), pel.getNombre());
-       //this.setBorder(bordejpanel); 
-      // this.setSize(200, 200);      
-        jButton1.setText(pel.getNombre());
         ImageIcon i;
         ImageUtils im = new ImageUtils();
         byte[] dato = im.hexStringToBytes(imagen.getDato().toString());
-        
         i= new ImageIcon(dato);
-        
-       // i = new ImageIcon("../"+etiqueta+".jpg");
-        jLabel4.setIcon(i);
-        jLabel4.setSize(200, 200);
-       // jButton1.setSize(20, 5);
-        
         String puntaje = String.valueOf(pel.getPuntaje());
         String año = String.valueOf(pel.getAño());
-        jLabel1.setText(puntaje);
-        jLabel2.setText(año); 
         
+        jButton1.setText(pel.getNombre());
+        jLabel4.setIcon(i);
+        jLabel4.setSize(200, 200);
+        jLabel1.setText(puntaje);
+        jLabel2.setText(año);      
     }
 
     /**

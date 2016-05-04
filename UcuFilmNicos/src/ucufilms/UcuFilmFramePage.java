@@ -146,11 +146,12 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(883, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,8 +163,7 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
                         .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
@@ -195,9 +195,9 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6)
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         pack();
@@ -245,9 +245,17 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         String nombre = jTextField3.getText();
         NewOkCancelDialog dialog = new NewOkCancelDialog(this, rootPaneCheckingEnabled);
-        llenarLista1(nombre);
-        MostrarLista frame = new MostrarLista(llenarLista1(nombre));
-        frame.pack();
+        
+        filtroNombre(nombre);//Para nombre peli
+        //filtroPorDirector(nombre);
+        //JPanelPelisLista frame = new JPanelPelisLista(llenarLista1(nombre));//para filtrar por genero
+        //JPanelPelisLista frame2 = new JPanelPelisLista(mostrarDirector(nombre));//para filtrar por director
+        NewJDiialogPelis d = new NewJDiialogPelis(filtrarActor(nombre));
+        d.setVisible(true);
+        d.pack();
+       
+        //frame.pack();
+        //frame2.pack();
       // if(filtroActor(nombre)==false && filtroNombre(nombre)== false && filtroPorDirector(nombre)==false && 
         //filtroPorGenero(nombre);
       //if(banderaGeneros == false){
@@ -378,7 +386,6 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
       String nombreUp=nombre.toUpperCase();
       ILista<Pelicula> pelis = new Lista<>();
       Pelicula elemento =(Pelicula) peliculas.getPrimero();
-      //Pelicula elemento = elementoPrimero;
       while(elemento !=null){
           if(elemento.getGeneros().toUpperCase().contains(nombreUp)){
               pelis.insertar(new Pelicula(elemento.getEtiqueta(), 
@@ -392,7 +399,75 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
       return pelis;
       
   }
+  public ILista<Pelicula> filtrarActor(String nombre){
+      String nombreUp=nombre.toUpperCase();
+      ILista<Pelicula> pelis = new Lista<>();
+      ILista<Pelicula> listaMostrar =peliculas;
+      Pelicula elemento =(Pelicula) listaMostrar.getPrimero();
+       while (elemento != null){
+           Actor elementoAc = (Actor)elemento.getActores().getPrimero();
+           while (elementoAc != null){
+               if(nombreUp.equals(elementoAc.getNombre().toUpperCase())){
+              pelis.insertar(new Pelicula(elemento.getEtiqueta(), 
+                        elemento.getNombre(), elemento.getAño(), elemento.getPuntaje(), 
+                      elemento.getReseña(), elemento.getGeneros(), elemento.getActores(), 
+                       elemento.getDirectores(),elemento.getProductores())); 
+              System.out.println(elemento.getNombre());
+          }elementoAc = (Actor) elementoAc.getSiguiente();
+      } 
+           elemento =(Pelicula) elemento.getSiguiente(); 
+       
+      }
+     
+      return pelis;
+       }
+    public boolean filtroActor(String nombre){
+      String nombreUp = nombre.toUpperCase();
+      ILista<Imagen> listaIm=imagenes;
+      Imagen elementoIm = (Imagen) listaIm.getPrimero();
+      ILista<Pelicula> listaMostrar =peliculas;
+      Pelicula elemento =(Pelicula) listaMostrar.getPrimero();
+     // Actor elementoAc = (Actor)elemento.getActores().getPrimero();
+       while (elemento != null){
+           Actor elementoAc = (Actor)elemento.getActores().getPrimero();
+           while (elementoAc != null){
+               if(nombreUp.equals(elementoAc.getNombre().toUpperCase()))
+                  {if(elemento.getEtiqueta().equals(elementoIm.getEtiqueta())){
+                   NewJDialogInfo dialog = new NewJDialogInfo(new java.awt.Frame() , true,elemento,elemento.getActores(),
+                   elemento.getDirectores(),elementoIm);
+                   dialog.setVisible(true);
+                   this.pack();
+                   return true;     
+               }
+           
+           }
+               elementoAc = (Actor) elementoAc.getSiguiente();
+           }
+           elementoIm=(Imagen) elementoIm.getSiguiente();
+           elemento =(Pelicula) elemento.getSiguiente();          
+       }
+      return false;
+  }
   
+  
+   public ILista<Pelicula> mostrarDirector(String nombre){
+      String nombreUp=nombre.toUpperCase();
+      ILista<Pelicula> pelis = new Lista<>();
+      ILista<Pelicula> listaMostrar =peliculas;
+      Pelicula elemento =(Pelicula) listaMostrar.getPrimero();
+      while(elemento !=null){
+          Director elementoAc = (Director)elemento.getDirectores().getPrimero();
+          if(nombreUp.equals(elementoAc.getNombre().toUpperCase())){
+              pelis.insertar(new Pelicula(elemento.getEtiqueta(), 
+                      elemento.getNombre(), elemento.getAño(), elemento.getPuntaje(), 
+                      elemento.getReseña(), elemento.getGeneros(), elemento.getActores(), 
+                      elemento.getDirectores(),elemento.getProductores())); 
+              System.out.println(elemento.getNombre());
+          }
+          elemento = (Pelicula) elemento.getSiguiente();        
+      }
+      return pelis; 
+  }
    public void filtroPorGenero(String nombre ){
        String nombreUp=nombre.toUpperCase();
        ILista<Pelicula> listaMostrar =peliculas;
@@ -465,32 +540,7 @@ public class UcuFilmFramePage extends javax.swing.JFrame {
        return false;
       
   }
-  public boolean filtroActor(String nombre){
-      String nombreUp = nombre.toUpperCase();
-      ILista<Imagen> listaIm=imagenes;
-      Imagen elementoIm = (Imagen) listaIm.getPrimero();
-      ILista<Pelicula> listaMostrar =peliculas;
-      Pelicula elemento =(Pelicula) listaMostrar.getPrimero();
-     // Actor elementoAc = (Actor)elemento.getActores().getPrimero();
-       while (elemento != null){
-           Actor elementoAc = (Actor)elemento.getActores().getPrimero();
-           while (elementoAc != null){
-               if(nombreUp.equals(elementoAc.getNombre().toUpperCase()))
-                  {if(elemento.getEtiqueta().equals(elementoIm.getEtiqueta())){
-                   NewJDialogInfo dialog = new NewJDialogInfo(new java.awt.Frame() , true,elemento,elemento.getActores(),
-                   elemento.getDirectores(),elementoIm);
-                   dialog.setVisible(true);
-                   this.pack();
-                   return true;     
-               }
-           
-           }elementoAc = (Actor) elementoAc.getSiguiente();
-           }
-           elementoIm=(Imagen) elementoIm.getSiguiente();
-           elemento =(Pelicula) elemento.getSiguiente();
-       }
-      return false;
-  }
+
   public void filtroAño(){
         ILista<Pelicula> listaMostrar =peliculas;
         ILista<Imagen> listaImagen = imagenes;

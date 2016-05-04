@@ -6,39 +6,29 @@
 package ucufilms;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 
 /**
  *
  * @author Nico
  */
-public class MostrarLista extends javax.swing.JFrame {
-
+public class NewJDiialogPelis extends javax.swing.JDialog {
+public String nombrePeliculaMostrar;
     /**
-     * Creates new form MostrarLista
-     * @param peliculas 
+     * Creates new form NewJDiialogPelis
      */
-    public MostrarLista(ILista<Pelicula> peliculas) {
+    public NewJDiialogPelis(ILista<Pelicula> peliculas) {
         initComponents();
         cargarJList(peliculas);
         this.setVisible(true);
+        
     }
 
-    private MostrarLista() {
+    private NewJDiialogPelis(JFrame jFrame, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 
-    public void cargarJList(ILista<Pelicula> peliculas) {
-        Pelicula p = (Pelicula) peliculas.getPrimero();
-        DefaultListModel dm = new DefaultListModel();
-        Pelicula aux = p;
-        while (aux != null) {
-            dm.addElement(aux.getNombre());
-            aux = (Pelicula) aux.getSiguiente();
-        }
-        jList1.setModel(dm);
-        
-        
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,7 +42,7 @@ public class MostrarLista extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,31 +63,37 @@ public class MostrarLista extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jButton1)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String pelicula = jList1.getSelectedValue();
-        UcuFilmFramePage metodo = new UcuFilmFramePage();
-        metodo.filtroNombre(pelicula);
+       String stringPelicula = jList1.getSelectedValue(); 
+       UcuFilmFramePage nombreDePeli = new UcuFilmFramePage();
+       nombreDePeli.nombrePeliculaMostrar1=stringPelicula;
+        System.out.println("llega");
+        System.out.println(stringPelicula);
+       nombreDePeli.filtroNombre(stringPelicula);
+     
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -117,20 +113,27 @@ public class MostrarLista extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MostrarLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJDiialogPelis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MostrarLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJDiialogPelis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MostrarLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJDiialogPelis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MostrarLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJDiialogPelis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MostrarLista().setVisible(true);
+                NewJDiialogPelis dialog = new NewJDiialogPelis(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
@@ -140,4 +143,18 @@ public class MostrarLista extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+public void cargarJList(ILista<Pelicula> peliculas) {
+        Pelicula p = (Pelicula) peliculas.getPrimero();
+        DefaultListModel dm = new DefaultListModel();
+        Pelicula aux = p;
+        while (aux != null) {
+            dm.addElement(aux.getNombre());
+            aux = (Pelicula) aux.getSiguiente();
+        }
+        jList1.setModel(dm);
+        
+        
+    }
 }
+
