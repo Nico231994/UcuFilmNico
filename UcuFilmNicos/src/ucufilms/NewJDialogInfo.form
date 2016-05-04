@@ -247,9 +247,9 @@
             </Property>
             <Property name="requestFocusEnabled" type="boolean" value="false"/>
           </Properties>
-          <BindingProperties>
-            <BindingProperty name="maximumSize" source="jScrollPane1" sourcePath="400" target="jTextArea1" targetPath="maximumSize" updateStrategy="0" immediately="false"/>
-          </BindingProperties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="NewJDialogInfo_jTextArea1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

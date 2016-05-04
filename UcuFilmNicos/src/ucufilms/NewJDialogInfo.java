@@ -63,7 +63,6 @@ public class NewJDialogInfo extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -119,10 +118,6 @@ public class NewJDialogInfo extends javax.swing.JDialog {
         jTextArea1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextArea1.setMinimumSize(new java.awt.Dimension(500, 110));
         jTextArea1.setRequestFocusEnabled(false);
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jScrollPane1, org.jdesktop.beansbinding.ELProperty.create("400"), jTextArea1, org.jdesktop.beansbinding.BeanProperty.create("maximumSize"));
-        bindingGroup.addBinding(binding);
-
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel3.setText("Actores:");
@@ -242,8 +237,6 @@ public class NewJDialogInfo extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -306,7 +299,6 @@ public class NewJDialogInfo extends javax.swing.JDialog {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 public String ImprimirElemento(Lista<Actor> ac){
     String actores="";
